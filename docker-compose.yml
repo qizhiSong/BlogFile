@@ -1,0 +1,15 @@
+version: '3.0'
+services:
+  personal_service:
+    container_name: simon-blog
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    ports: 
+      - "80:80"
+    volumes: 
+      - '/home/personal_blog/nginx.conf:/etc/nginx/nginx.conf'
+      - '/home/personal_blog/blog/public:/usr/src/personal_blog/public'
+    restart: on-failure
+volumes: 
+  hexo_blog:
